@@ -9,13 +9,7 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
-        <Switch>
-          <Route path='/' ><Upload /></Route>
-          <Route path='/uploading'><Uploading /></Route>
-          <Route path='/uploaded'><Uploaded /></Route>
-        </Switch>
-      </BrowserRouter>
+      <Upload />
     </div>
   )
 }
