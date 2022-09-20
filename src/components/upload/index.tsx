@@ -18,14 +18,24 @@ useEffect(() => {
     const [imgPath, setImgPath] = useState<string>("")    
     const [file, setFile] = useState<File>()
     const [formData, setFormData] = useState<FormData>(new FormData())    
+    const [dragEnter, setDragEnter] = useState<boolean>(false)
+
+    
+    const StyleDragEnter = "border-lime-900"    
+    const StyleDragOut = "border-blue-border"    
 
     const onDragEnter = (e: React.DragEvent<HTMLDivElement>) => {      
       e.stopPropagation();
+      setDragEnter(!dragEnter)
+    }
+    const onDragLeave = (e: React.DragEvent<HTMLDivElement>) => {      
+      e.stopPropagation();
+      setDragEnter(!dragEnter)
     }
 
     const onDragOver = (e: React.DragEvent<HTMLDivElement>) => {        
         e.stopPropagation();
-        e.preventDefault();
+        e.preventDefault();        
     }    
     
     const  onFileDrop = async(e: React.DragEvent<HTMLDivElement>) => {        
@@ -65,19 +75,20 @@ useEffect(() => {
         <div className="h-upload w-upload flex flex-col shadow-md rounded-xl justify-center items-center">
             <p className="text-large text-txt-strong">Upload your image</p>
             <p className='text-small text-txt-base mt-[15.99px]'>File should be Jpeg, Png...</p>
-            <div className="
+            <div className={`
                 h-container-drag 
                 w-container-drag 
                 border-2 
-                border-dashed 
-                border-blue-border 
+                border-dashed                 
                 rounded-xl 
                 bg-gray-back
                 flex flex-col
                 justify-center
                 items-center
-                mt-[29.62px]"
+                mt-[29.62px]
+                ${dragEnter ? StyleDragEnter : StyleDragOut}`}
                 onDragEnter={onDragEnter}
+                onDragLeave={onDragLeave}
                 onDragOver={onDragOver}
                 onDrop={onFileDrop}
             >

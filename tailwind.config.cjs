@@ -10,7 +10,6 @@ module.exports = {
         'container-drag': '218.9px',
         'image-drag':'88.24px',
         'button':'31.98px',
-
         'uploading':'143.57px',
         'bar' :'6px'
       },
