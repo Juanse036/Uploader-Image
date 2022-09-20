@@ -8,13 +8,9 @@ import Uploading from '../uploading'
 const Upload = () => {
 
 /*--------------------------EMPTY BUCKT <SUPABASE----------------------*/
-
-/*
 useEffect(() => {
     EmptyBucket();
 }, [])
-*/
-
 
 /*----------------------------DRAG AND DROP------------------------*/  
 
